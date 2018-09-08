@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
-import { login, refreshAccessToken } from '../actions/authActions';
+import { login, refreshAccessToken, switchAccount } from '../actions/authActions';
 
 class LoginScreen extends React.Component {
 
@@ -20,6 +20,7 @@ class LoginScreen extends React.Component {
             <View style={styles.container}>
                 <View style={styles.logInContainer}>
                     <Button onPress={this.onLogIn} title='Login'></Button>
+                    <Button onPress={this.switchAccount} title='Switch Account'></Button>                    
                 </View>
             </View>
         );
@@ -28,7 +29,9 @@ class LoginScreen extends React.Component {
     onLogIn = () => {
         this.props.refreshAccessToken(this.props.refreshToken);
     }
-
+    switchAccount = () => {
+        this.props.switchAccount();
+    }
     onRefreshTokenError = () => {
         if (this.props.refreshError) {
             this.props.login();
@@ -68,6 +71,7 @@ const mapDispatchToProps = (dispatch) => {
 
     return bindActionCreators({
         login,
+        switchAccount,
         refreshAccessToken
     }, dispatch);
 

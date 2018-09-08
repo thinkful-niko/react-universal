@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.post('/update', checkJwt, async function(req, res){
 
+    console.log('update ',req.body, req.user)
     const user = {
         user_id: req.user.sub,
         email: req.body.email

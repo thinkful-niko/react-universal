@@ -40,6 +40,8 @@ export const storeUserError = () => {
 export const storeUser = (accessToken, user) => (dispatch) => {
 
     dispatch(storeUserPending());
+    
+    console.log('web',APP_SERVER_URL)
 
     fetch(`${APP_SERVER_URL}/users/update`, {
         method: 'POST',

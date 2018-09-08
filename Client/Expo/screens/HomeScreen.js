@@ -49,7 +49,7 @@ class HomeScreen extends React.Component {
                 </Text>
               : null}
           </View>
-          <Button onPress={this.onLogOut} title='Logout'></Button>
+          <Button onPress={this.onLogOut} title='Logout'></Button>          
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>
